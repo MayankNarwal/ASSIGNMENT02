@@ -1,0 +1,27 @@
+<!-- views/playlists/view.hbs -->
+<h1>{{playlist.name}}</h1>
+
+<!-- Display the songs in the playlist -->
+<ul>
+  {{#each playlist.songs}}
+    <li>{{this.title}} by {{this.artist}}</li>
+  {{/each}}
+</ul>
+
+<!-- Form to add a song to the playlist -->
+<h3>Add a new song</h3>
+<form action="/playlists/{{playlist._id}}/add-song" method="POST">
+  <div>
+    <label for="title">Song Title</label>
+    <input type="text" name="title" id="title" required>
+  </div>
+  <div>
+    <label for="artist">Artist</label>
+    <input type="text" name="artist" id="artist" required>
+  </div>
+  <div>
+    <label for="url">Song URL</label>
+    <input type="text" name="url" id="url" required>
+  </div>
+  <button type="submit">Add Song</button>
+</form>
